@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? email;
   DateTime dataSelecionada = DateTime.now();
   String _opcaoPadrao = "Selecione";
   List<String> _listaOpcoes = ["Selecione", "Opção 1", "Opção 2", "Opção 3"];
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage> {
         corDaMensagem = Colors.transparent;
       });
       //Exibir o conteúdo das variáveis
+      print("$email");
       print("$dataSelecionada");
       print("Recife: $_opRecife");
       print("Cabo de Santo Agostinho: $_opCabo");
@@ -90,6 +92,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     //-----------------------------
                     TextFormField(
+                      onChanged: (value) => email = value,
                       validator: (value) => _validateEmail(value.toString()),
                       decoration: InputDecoration(
                         label: Text("E-mail"),
